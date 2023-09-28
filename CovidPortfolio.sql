@@ -9,7 +9,7 @@ ALTER COLUMN total_deaths float*/
 -- Liklihood of dying from covid
 select  location, date, total_cases, total_deaths, ( total_deaths/total_cases)* 100 as Deathpercentage
 from CovidDeaths$
-continent is not null
+where continent is not null
 order by 1,2 asc
 
 -- total cases vs population
@@ -40,4 +40,16 @@ group by continent
 order by DeathCount desc
 
 
--- Highest infection rate compared to p
+
+-- Global numbers By date
+select date, Sum(new_cases) as Total_cases, Sum(new_deaths) as Total_Deaths, Sum(new_deaths)/Sum(new_cases)*100
+from CovidDeaths$
+where continent is not null
+group by date
+order by 1,2 
+
+-- Global numbers
+select Sum(new_cases) as Total_cases, Sum(new_deaths) as Total_Deaths, Sum(new_deaths)/Sum(new_cases)*100
+from CovidDeaths$
+where continent is not null  
+order by 1,2 
