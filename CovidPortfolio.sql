@@ -53,3 +53,12 @@ select Sum(new_cases) as Total_cases, Sum(new_deaths) as Total_Deaths, Sum(new_d
 from CovidDeaths$
 where continent is not null  
 order by 1,2 
+
+--Looking at Total Population vs Vaccinations
+
+select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations, sum(vac.new_vaccinations) over(partition by dea.location)
+from CovidDeaths$ dea
+join CovidVacinnations$ vac
+on dea.location = vac.location
+where dea.continent is not null and vac.new_vaccinations is not null
+order by 2,3
