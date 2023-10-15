@@ -1,10 +1,4 @@
-/*select location , date, total_cases, total_deaths, population
-from CovidDeaths$
-order by 1,2*/
 
--- Looking at total cases vs total deaths
-/*ALTER TABLE CovidDeaths$
-ALTER COLUMN total_deaths float*/
 
 -- Liklihood of dying from covid
 select  location, date, total_cases, total_deaths, ( total_deaths/total_cases)* 100 as Deathpercentage
