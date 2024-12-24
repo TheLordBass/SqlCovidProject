@@ -3,8 +3,11 @@ This project leverages SQL to perform exploratory data analysis (EDA) on COVID-1
 
 Key Highlights:
 Data Cleaning and Preparation: Handling missing values, normalizing region names, and ensuring data consistency.
+
 Trend Analysis: Identifying patterns in case counts, recovery rates, and death rates over time for different regions.
+
 Regional Comparisons: Comparing COVID-19 metrics across continents, countries, and states to identify trends and outliers.
+
 Query Examples:
 Tracking daily and cumulative case counts.
 Calculating recovery and fatality rates.
